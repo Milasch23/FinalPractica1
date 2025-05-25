@@ -1,126 +1,197 @@
-/* Variables de colores */
+/* --- Variables de diseño (colores, fuentes) --- */
 :root {
-    --primary: #4361ee;
-    --secondary: #3f37c9;
-    --success: #4cc9f0;
-    --danger: #f72585;
-    --light: #f8f9fa;
-    --dark: #212529;
+    --primary: #4361ee;      /* Azul principal */
+    --primary-dark: #3a0ca3; /* Azul oscuro */
+    --secondary: #f72585;    /* Rosa */
+    --success: #4cc9f0;      /* Celeste */
+    --warning: #f8961e;      /* Naranja */
+    --danger: #ef233c;       /* Rojo */
+    --light: #f8f9fa;        /* Gris claro */
+    --dark: #212529;         /* Gris oscuro */
+    --border: #dee2e6;       /* Borde gris */
 }
 
-/* Estilos generales */
+/* --- Reset básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 20px;
+    line-height: 1.6;
+    background-color: #f5f7fa;
     color: var(--dark);
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    color: var(--primary);
+/* --- Contenedor principal --- */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: var(--primary-dark);
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
 }
 
-/* Formulario */
+h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* --- Formulario --- */
 .form {
-    margin-bottom: 20px;
+    background: var(--light);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-dark);
 }
 
 input, select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s;
 }
 
-/* Botones */
+input:focus, select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+/* --- Botones --- */
 .btn {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
     background-color: var(--primary);
     color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: var(--secondary);
-    color: white;
 }
 
-.btn:hover {
-    opacity: 0.9;
+.btn-secondary:hover {
+    background-color: #d81159;
 }
 
-/* Tabla */
+.btn-danger {
+    background-color: var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: #d00000;
+}
+
+/* --- Tabla de postulaciones --- */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    margin: 25px 0;
+    font-size: 1rem;
 }
 
 th {
     background-color: var(--primary);
     color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border);
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: rgba(67, 97, 238, 0.05);
 }
 
-/* Filtros */
+/* --- Filtros --- */
 .filters {
-    margin: 20px 0;
     display: flex;
     gap: 10px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--light);
+    color: var(--dark);
+    border: 1px solid var(--border);
 }
 
 .filter-btn.active {
     background-color: var(--primary);
+    color: white;
 }
 
-/* Estados */
+/* --- Estados --- */
 .status-enviado {
-    color: #2a9d8f;
+    color: var(--primary);
+    font-weight: 600;
 }
 
 .status-entrevista {
-    color: #e9c46a;
+    color: var(--warning);
+    font-weight: 600;
 }
 
 .status-rechazado {
     color: var(--danger);
+    font-weight: 600;
+}
+
+/* --- Responsive (móviles) --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
 }
