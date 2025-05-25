@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker | Mis Postulaciones</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mis Postulaciones</h1>
+        <div class="filters">
+            <button class="btn filter-btn active" data-status="all">Todas</button>
+            <button class="btn filter-btn" data-status="Enviado">Enviado</button>
+            <button class="btn filter-btn" data-status="Entrevista">Entrevista</button>
+            <button class="btn filter-btn" data-status="Rechazado">Rechazado</button>
+        </div>
+        <table id="jobsTable">
+            <thead>
+                <tr>
+                    <th>Empresa</th>
+                    <th>Puesto</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button id="goBack" class="btn">Volver al inicio</button>
+    </div>
+    <script src="js/storage.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
